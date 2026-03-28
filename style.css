@@ -345,9 +345,27 @@ section .topic {
   display: flex;
   align-items: center;
   padding-top: 150px;
+  position: relative;
+  overflow: hidden;
   background:
-    linear-gradient(115deg, rgba(4, 11, 22, 0.88), rgba(6, 17, 31, 0.62)),
-    url("Images/final2.png") center/cover no-repeat;
+    radial-gradient(circle at 12% 18%, rgba(88, 166, 255, 0.24), transparent 24%),
+    radial-gradient(circle at 85% 22%, rgba(139, 92, 246, 0.2), transparent 24%),
+    radial-gradient(circle at 78% 78%, rgba(45, 212, 191, 0.16), transparent 26%),
+    linear-gradient(135deg, #081321 0%, #0c1a2f 48%, #07111f 100%);
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  inset: auto;
+  width: 540px;
+  height: 540px;
+  right: -140px;
+  top: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(88, 166, 255, 0.18) 0%, rgba(88, 166, 255, 0.02) 62%, transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
 }
 
 .home::after {
@@ -355,6 +373,7 @@ section .topic {
   position: absolute;
   inset: 0;
   background:
+    linear-gradient(90deg, rgba(7, 17, 31, 0.18) 0%, rgba(7, 17, 31, 0.04) 38%, rgba(7, 17, 31, 0.24) 100%),
     radial-gradient(circle at 15% 20%, rgba(88, 166, 255, 0.12), transparent 25%),
     radial-gradient(circle at 80% 80%, rgba(45, 212, 191, 0.12), transparent 28%);
   pointer-events: none;
@@ -543,6 +562,11 @@ section .topic {
 
 .about .left {
   position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
 }
 
 .about .left::after {
@@ -556,9 +580,10 @@ section .topic {
 
 .about .left img {
   width: 100%;
-  height: 100%;
-  min-height: 380px;
+  height: auto;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center top;
   border-radius: 26px;
 }
 
@@ -649,7 +674,7 @@ section .topic {
 .project-card-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .project-card .topic {
@@ -658,6 +683,14 @@ section .topic {
 
 .project-card p {
   margin-bottom: 24px;
+  max-width: 66ch;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
 }
 
 .project-visual {
@@ -906,6 +939,14 @@ footer .text span a:hover {
     background-attachment: scroll;
   }
 
+  .home::before {
+    width: 320px;
+    height: 320px;
+    right: -100px;
+    top: 160px;
+    opacity: 0.85;
+  }
+
   .hero-actions {
     flex-direction: column;
     align-items: flex-start;
@@ -937,7 +978,7 @@ footer .text span a:hover {
   }
 
   .about .left img {
-    min-height: 300px;
+    aspect-ratio: 4 / 5;
   }
 
   .project-visual {
