@@ -570,6 +570,16 @@ section .topic {
   color: var(--muted);
 }
 
+.about-details .right .button {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.about-details .right .btn {
+  align-self: flex-start;
+}
+
 .skills {
   padding-top: 90px;
 }
